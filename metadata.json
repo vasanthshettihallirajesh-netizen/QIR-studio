@@ -1,0 +1,7 @@
+{
+  "name": "QIR Studio - Quantum IR Development Workspace",
+  "description": "VS Code inspired cloud workspace for developing, validating, compiling, and testing the Quantum Intermediate Representation (qir-platform) platform with AI copilot.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
