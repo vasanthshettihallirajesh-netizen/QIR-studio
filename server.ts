@@ -16,18 +16,6 @@ const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.resolve(__dirname, 'public')));
 
-// Direct download endpoints for Word document (.docx)
-const docxFilePath = path.resolve(__dirname, 'public/Technical_Specification_Graph_Listener_Risk_Engine.docx');
-
-app.get(['/api/download-spec-docx', '/Technical_Specification_Graph_Listener_Risk_Engine.docx', '/download/docx'], (_req, res) => {
-  res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-  res.download(docxFilePath, 'Technical_Specification_Graph_Listener_Risk_Engine.docx', (err) => {
-    if (err && !res.headersSent) {
-      res.status(500).json({ error: 'Failed to download document', details: err.message });
-    }
-  });
-});
-
 app.get(['/api/download-zip', '/qir-studio.zip'], (_req, res) => {
   const zipPath = path.resolve(__dirname, 'public/qir-studio.zip');
   res.download(zipPath, 'qir-studio.zip');
