@@ -28,6 +28,11 @@ app.get(['/api/download-spec-docx', '/Technical_Specification_Graph_Listener_Ris
   });
 });
 
+app.get(['/api/download-zip', '/qir-studio.zip'], (_req, res) => {
+  const zipPath = path.resolve(__dirname, 'public/qir-studio.zip');
+  res.download(zipPath, 'qir-studio.zip');
+});
+
 // Initialize GoogleGenAI if key is present
 const apiKey = process.env.GEMINI_API_KEY;
 let ai: GoogleGenAI | null = null;
